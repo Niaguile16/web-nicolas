@@ -20,6 +20,12 @@ html {
   scroll-padding-top: 5.5rem;
 }
 
+section[id],
+.experience-card[id],
+.education-card[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -239,6 +245,148 @@ a:focus-visible {
 
 .about-section {
   padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.journey-section {
+  padding: 2.5rem 0 3rem;
+}
+
+.journey-section .section-heading {
+  margin-bottom: 1rem;
+}
+
+.timeline-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  row-gap: 1.25rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-entry {
+  position: relative;
+  min-width: 0;
+  min-height: 7.5rem;
+  padding: 0 0.7rem 0 0;
+}
+
+.timeline-entry::before,
+.timeline-entry::after {
+  position: absolute;
+  top: -1.35rem;
+  height: 2px;
+  background: var(--border);
+  content: "";
+}
+
+.timeline-entry::before {
+  right: 50%;
+  left: 0;
+}
+
+.timeline-entry::after {
+  right: 0;
+  left: 50%;
+}
+
+.timeline-entry:nth-child(5n + 1)::before,
+.timeline-entry:nth-child(5n)::after {
+  display: none;
+}
+
+.timeline-entry a {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.15rem;
+  height: 100%;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.timeline-entry a::before {
+  position: absolute;
+  top: -1.7rem;
+  left: calc(50% - 0.38rem);
+  width: 0.76rem;
+  height: 0.76rem;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--border);
+  content: "";
+}
+
+.timeline-entry--work a::before {
+  background: var(--navy);
+}
+
+.timeline-entry--education a::before {
+  background: var(--teal);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.timeline-entry--work .timeline-date {
+  color: var(--navy);
+}
+
+.timeline-entry--education .timeline-date {
+  color: var(--teal);
+}
+
+.timeline-title {
+  color: var(--navy);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.timeline-detail {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.timeline-entry a:hover .timeline-title {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.timeline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  list-style: none;
+}
+
+.timeline-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timeline-legend li::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  content: "";
+}
+
+.timeline-legend-work::before {
+  background: var(--navy);
+}
+
+.timeline-legend-education::before {
+  background: var(--teal);
 }
 
 .section h2,
@@ -581,6 +729,65 @@ a:focus-visible {
     flex-direction: column;
     gap: 0.75rem;
     margin-bottom: 1.75rem;
+  }
+
+  .journey-section {
+    padding: 2.5rem 0;
+  }
+
+  .journey-section .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-list {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    margin: 0.5rem 0 0 0.7rem;
+    padding-left: 1.2rem;
+  }
+
+  .timeline-entry {
+    min-height: 0;
+    padding: 0 0 1.15rem;
+  }
+
+  .timeline-entry::before,
+  .timeline-entry::after,
+  .timeline-entry:nth-child(5n + 1)::before,
+  .timeline-entry:nth-child(5n)::after {
+    display: none;
+  }
+
+  .timeline-entry:not(:last-child)::before {
+    position: absolute;
+    top: 0.35rem;
+    bottom: -0.15rem;
+    left: -1.2rem;
+    display: block;
+    width: 2px;
+    height: auto;
+    background: var(--border);
+  }
+
+  .timeline-entry a::before {
+    top: 0.38rem;
+    left: -1.52rem;
+  }
+
+  .timeline-entry a {
+    gap: 0.12rem;
+  }
+
+  .timeline-title {
+    font-size: 0.93rem;
+  }
+
+  .timeline-detail {
+    font-size: 0.82rem;
+  }
+
+  .timeline-legend {
+    margin-left: 1.9rem;
   }
 
   .experience-card {
